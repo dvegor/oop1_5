@@ -25,21 +25,21 @@ namespace Lesson5
             }
         }
 
-        public static bool SelectDoing(Calculator sendler, string doing, out Action<double> action)
+        public static bool SelectDoing(Calculator sender, string doing, out Action<double> action)
         {
             switch (doing)
             {
                 case "+":
-                    action = sendler.summ;
+                    action = sender.summ;
                     return true;
                 case "-":
-                    action = sendler.subtract;
+                    action = sender.subtract;
                     return true;
                 case "*":
-                    action = sendler.multiply;
+                    action = sender.multiply;
                     return true;
                 case "/":
-                    action = sendler.divide;
+                    action = sender.divide;
                     return true;
                 default:
                     action = null;
@@ -49,7 +49,7 @@ namespace Lesson5
         }
         static void Main(string[] args)
         {
-            Calculator sendler = new Calculator();
+            Calculator sender = new Calculator();
             bool flag1 = true;
             bool flag2 = false;
             double number = 0;
@@ -65,7 +65,7 @@ namespace Lesson5
                 if (double.TryParse(input, out checked(number)))
                 {
                     flag2 = true;
-                    sendler.Result = number;
+                    sender.Result = number;
                 }
 
             }
@@ -83,7 +83,7 @@ namespace Lesson5
                     }
                     else
                     {
-                        flag2 = !SelectDoing(sendler, inputdoing, out doing);
+                        flag2 = !SelectDoing(sender, inputdoing, out doing);
                     }
                 }
 
@@ -102,7 +102,7 @@ namespace Lesson5
                     }
 
                 }
-                ShowResult(sendler);
+                ShowResult(sender);
             }
         }
     }
